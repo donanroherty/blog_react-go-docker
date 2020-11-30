@@ -14,7 +14,8 @@ type timeJSON struct {
 
 const (
 	port       = 80
-	staticPath = "./static"
+	staticPath = "/srv/www/app"
+	// staticPath = "./static"
 )
 
 func main() {
