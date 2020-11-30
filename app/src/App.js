@@ -1,25 +1,26 @@
-import logo from './logo.svg';
-import './App.css';
+import logo from "./logo.svg"
+import "./App.css"
+
+import { useState } from "react"
 
 function App() {
+  const [time, setTime] = useState(null)
+
+  const handleBtnClick = async () => {
+    const res = await fetch("/api/time")
+    const json = await res.json()
+    setTime(json.server_time)
+  }
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <button onClick={handleBtnClick}>What time is it?</button>
+        {time && <p>The time is: {time}</p>}
       </header>
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
