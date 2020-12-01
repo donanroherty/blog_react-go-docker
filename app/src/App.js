@@ -6,7 +6,7 @@ import { useState } from "react"
 function App() {
   const [time, setTime] = useState(null)
 
-  const handleBtnClick = async () => {
+  const handleGetTime = async () => {
     const res = await fetch("/api/time")
     const json = await res.json()
     setTime(json.server_time)
@@ -16,7 +16,7 @@ function App() {
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        <button onClick={handleBtnClick}>What time is it?</button>
+        <button onClick={handleGetTime}>What time is it?</button>
         {time && <p>The time is: {time}</p>}
       </header>
     </div>

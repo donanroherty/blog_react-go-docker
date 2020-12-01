@@ -34,6 +34,6 @@ RUN apk update && apk add --no-cache bash
 COPY --from=server-build-env /api/bin/api /srv/http/api
 COPY --from=app-build-env /app/build /srv/www/app
 
-EXPOSE 80 80
+EXPOSE 80
 
 CMD ["/srv/http/api"]
